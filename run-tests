@@ -1,0 +1,27 @@
+#!/bin/bash
+if [ ! -h prism ]; then
+    echo "./prism must be a symlink to the bin/prism script under the PRISM directory tree, e.g. add a symlink as \"ln -s PATH_TO_PRISM_DIRECTORY/bin/prism prism\""
+    exit 1
+fi
+make
+
+./gen-mcs x &&
+./gen-mcs ix &&
+./gen-mcs nx &&
+./gen-mcs nix &&
+./gen-mcs lx &&
+./gen-mcs lix &&
+./gen-mcs lnx &&
+./gen-mcs lnix &&
+./gen-mcs c &&
+./gen-mcs nc &&
+./gen-mcs x1 &&
+./gen-mcs x2 &&
+./gen-mcs x3 &&
+./gen-mcs c3 &&
+./gen-mcs nx4 &&
+./gen-mcs nc4 &&
+./gen-mcs nc450300602 &&
+./gen-mcs 5 &&
+echo "SUCCESS: All models were analyzed without runtime errors." ||
+echo "FAILURE: There was a runtime error when analyzing a model."
